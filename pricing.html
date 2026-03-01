@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing - Soham Web Solutions</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+-webkit-tap-highlight-color: transparent;
+}
+
+body{
+background:#f3f5fa;
+color:#111;
+}
+
+/* HEADER */
+header{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:14px 8%;
+background:#fff;
+box-shadow:0 2px 10px rgba(0,0,0,0.05);
+z-index:1000;
+}
+
+.logo{
+font-size:18px;
+font-weight:600;
+color:#2d4bff;
+text-decoration:none;
+}
+
+.menu-btn{
+font-size:22px;
+cursor:pointer;
+}
+
+/* DRAWER */
+.drawer{
+position:fixed;
+top:0;
+right:-250px;
+width:220px;
+height:100vh;
+background:#fff;
+padding:70px 20px;
+display:flex;
+flex-direction:column;
+gap:14px;
+transition:.3s ease;
+box-shadow:-5px 0 20px rgba(0,0,0,0.08);
+z-index:1001;
+}
+
+.drawer a{
+text-decoration:none;
+color:#111;
+border:1px solid #eee;
+padding:10px;
+border-radius:8px;
+text-align:center;
+font-size:14px;
+}
+
+.close-btn{
+position:absolute;
+top:15px;
+right:15px;
+cursor:pointer;
+}
+
+.drawer.active{ right:0; }
+
+.overlay{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.3);
+opacity:0;
+visibility:hidden;
+transition:.3s;
+z-index:1000;
+}
+
+.overlay.active{
+opacity:1;
+visibility:visible;
+}
+
+/* SECTION */
+section{
+padding:120px 10% 60px;
+text-align:center;
+}
+
+section h2{
+margin-bottom:30px;
+font-size:22px;
+}
+
+/* CARD */
+.price-card{
+background:#ffffff;
+padding:35px 20px;
+border-radius:22px;
+margin-bottom:25px;
+transition:transform 0.15s ease, box-shadow 0.15s ease;
+cursor:pointer;
+}
+
+.price-card:active{
+transform:scale(0.96);
+box-shadow:0 6px 18px rgba(0,0,0,0.12);
+}
+
+.price{
+font-size:26px;
+color:#2d4bff;
+font-weight:700;
+margin:12px 0;
+}
+
+.price-card p{
+font-size:14px;
+color:#444;
+line-height:1.6;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<a href="index.html" class="logo">Soham Web Solutions</a>
+<div class="menu-btn" onclick="openMenu()">☰</div>
+</header>
+
+<!-- CONNECTED MENU -->
+<div class="drawer" id="drawer">
+<div class="close-btn" onclick="closeMenu()">✕</div>
+<a href="index.html">Home</a>
+<a href="service.html">Services</a>
+<a href="pricing.html">Pricing</a>
+<a href="review.html">Reviews</a>
+<a href="contact.html">Contact</a>
+</div>
+
+<div class="overlay" id="overlay" onclick="closeMenu()"></div>
+
+<section>
+<h2>Pricing Plans</h2>
+
+<div class="price-card">
+<h3>Business</h3>
+<div class="price">₹3999</div>
+<p>Up to 5 Pages<br>SEO Setup<br>Automation</p>
+</div>
+
+<div class="price-card">
+<h3>Starter</h3>
+<div class="price">₹1999</div>
+<p>1 Page Website<br>Responsive<br>Contact Form</p>
+</div>
+
+<div class="price-card">
+<h3>Premium</h3>
+<div class="price">₹6999+</div>
+<p>Full Website<br>AI Integration<br>Advanced</p>
+</div>
+
+</section>
+
+<script>
+function openMenu(){
+document.getElementById("drawer").classList.add("active");
+document.getElementById("overlay").classList.add("active");
+}
+function closeMenu(){
+document.getElementById("drawer").classList.remove("active");
+document.getElementById("overlay").classList.remove("active");
+}
+</script>
+
+</body>
+</html>
