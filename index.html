@@ -16,8 +16,6 @@ font-family:'Poppins',sans-serif;
 -webkit-tap-highlight-color: transparent;
 }
 
-html{ scroll-behavior:smooth; }
-
 body{
 background:#ffffff;
 color:#111;
@@ -103,24 +101,39 @@ opacity:1;
 visibility:visible;
 }
 
-/* SECTIONS */
+/* SECTION */
 section{
-padding:80px 10% 50px;
+padding:90px 10% 60px;
 text-align:center;
+opacity:0;
+transform:translateY(30px);
+transition:0.6s ease;
 }
 
-.hero{ padding-top:120px; }
-
-.hero h1{
-font-size:24px;
-margin-bottom:8px;
+section.show{
+opacity:1;
+transform:translateY(0);
 }
 
-.hero p{
-font-size:14px;
-color:#555;
-max-width:500px;
-margin:auto;
+.hero{
+padding-top:120px;
+}
+
+/* CARDS TAP */
+.card,
+.price-card,
+.review,
+.contact-card{
+transition:transform .15s ease, box-shadow .15s ease;
+cursor:pointer;
+}
+
+.card:active,
+.price-card:active,
+.review:active,
+.contact-card:active{
+transform:scale(0.96);
+box-shadow:0 8px 20px rgba(0,0,0,0.1);
 }
 
 /* SERVICES */
@@ -150,13 +163,6 @@ background:#fff;
 padding:35px 20px;
 border-radius:18px;
 margin-top:20px;
-cursor:pointer;
-transition:.3s;
-}
-
-.price-card:hover{
-transform:scale(1.02);
-box-shadow:0 8px 25px rgba(0,0,0,0.08);
 }
 
 .price{
@@ -192,7 +198,7 @@ text-align:left;
 100%{ transform:translateX(-50%); }
 }
 
-/* CONTACT BIGGER */
+/* CONTACT */
 .contact{
 background:#fafafa;
 padding-bottom:80px;
@@ -234,7 +240,6 @@ color:#333;
 100%{ transform:translateX(-50%); }
 }
 
-/* FOOTER */
 footer{
 text-align:center;
 padding:18px;
@@ -243,6 +248,7 @@ color:#666;
 }
 </style>
 </head>
+
 <body>
 
 <header>
@@ -261,7 +267,7 @@ color:#666;
 
 <div class="overlay" id="overlay" onclick="closeMenu()"></div>
 
-<section class="hero" id="home">
+<section class="hero show" id="home">
 <h1>Simple Websites for Growing Businesses</h1>
 <p>Clean, responsive and easy to use web solutions.</p>
 </section>
@@ -315,64 +321,21 @@ color:#666;
 <div class="review">⭐ 4.9 — Clean design & delivery.</div>
 <div class="review">⭐ 5.0 — Easy communication.</div>
 <div class="review">⭐ 4.7 — Highly recommended.</div>
-
-<div class="review">⭐ 4.8 — Good support and fast work.</div>
-<div class="review">⭐ 5.0 — Very professional developer.</div>
 </div>
 </div>
 </section>
 
 <section id="contact" class="contact">
 <h2>Contact</h2>
-
 <div class="contact-scroll-wrapper">
 <div class="contact-track">
-
-<div class="contact-card">
-<h4>Phone</h4>
-<p>9083946648</p>
-</div>
-
-<div class="contact-card">
-<h4>WhatsApp</h4>
-<p>9083946648</p>
-</div>
-
-<div class="contact-card">
-<h4>Email</h4>
-<p>sohamwebstudio@gmail.com</p>
-</div>
-
-<div class="contact-card">
-<h4>Instagram</h4>
-<p>@sohamwebstudio</p>
-</div>
-
-<div class="contact-card">
-<h4>LinkedIn</h4>
-<p>@sohamwebstudi</p>
-</div>
-
-<div class="contact-card">
-<h4>Facebook</h4>
-<p>@sohamwebstudio</p>
-</div>
-
-<!-- duplicate for smooth loop -->
-
-<div class="contact-card">
-<h4>Phone</h4>
-<p>9083946648</p>
-</div>
-
-<div class="contact-card">
-<h4>Email</h4>
-<p>sohamwebstudio@gmail.com</p>
-</div>
-
+<div class="contact-card"><h4>Phone</h4><p>9083946648</p></div>
+<div class="contact-card"><h4>Email</h4><p>sohamwebstudio@gmail.com</p></div>
+<div class="contact-card"><h4>Instagram</h4><p>@sohamwebstudio</p></div>
+<div class="contact-card"><h4>LinkedIn</h4><p>@sohamwebstudi</p></div>
+<div class="contact-card"><h4>Facebook</h4><p>@sohamwebstudio</p></div>
 </div>
 </div>
-
 </section>
 
 <footer>
@@ -388,6 +351,21 @@ function closeMenu(){
 document.getElementById("drawer").classList.remove("active");
 document.getElementById("overlay").classList.remove("active");
 }
+
+/* Scroll Reveal FIXED */
+const sections = document.querySelectorAll("section");
+
+function reveal(){
+sections.forEach(sec=>{
+const top = sec.getBoundingClientRect().top;
+if(top < window.innerHeight - 100){
+sec.classList.add("show");
+}
+});
+}
+
+window.addEventListener("load", reveal);
+window.addEventListener("scroll", reveal);
 </script>
 
 </body>
