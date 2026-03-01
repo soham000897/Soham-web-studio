@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soham Web Solutions</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<header>
+<div class="logo">Soham Web Solutions</div>
+<nav>
+<a href="index.html">Home</a>
+<a href="portfolio.html">Portfolio</a>
+<a href="ai.html">AI</a>
+<a href="contact.html">Contact</a>
+</nav>
+</header>
+
+<section class="hero reveal">
+<h1>Build a <span>Powerful Online Presence.</span></h1>
+<p>Premium websites & automation solutions designed to grow your business.</p>
+<a href="contact.html" class="btn-primary">Get Free Consultation</a>
+</section>
+
+<section class="services reveal">
+<h2>Our Services</h2>
+<div class="grid">
+<div class="card">
+<i class="fa-solid fa-laptop-code icon"></i>
+<h3>Website Development</h3>
+<p>Modern, responsive and conversion-focused websites.</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-bolt icon"></i>
+<h3>Automation</h3>
+<p>Smart automation systems to handle enquiries instantly.</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-robot icon"></i>
+<h3>AI Integration</h3>
+<p>Lightning fast AI assistant for 24/7 support.</p>
+</div>
+</div>
+</section>
+
+<section class="pricing reveal">
+<h2>Pricing Plans</h2>
+<div class="grid">
+<div class="price-card">
+<h3>Starter</h3>
+<div class="price">₹1999</div>
+<p>1 Page Website<br>Contact Form<br>Responsive Design</p>
+</div>
+
+<div class="price-card highlight">
+<h3>Business</h3>
+<div class="price">₹3999</div>
+<p>Up to 5 Pages<br>SEO Setup<br>Automation</p>
+</div>
+
+<div class="price-card">
+<h3>Premium</h3>
+<div class="price">₹6999+</div>
+<p>Full Website<br>AI Integration<br>Advanced Features</p>
+</div>
+</div>
+</section>
+
+<section class="reviews reveal">
+<h2>Client Reviews</h2>
+
+<div class="review-box">
+<div class="avatar">AS</div>
+<div>
+<div class="stars">★★★★★</div>
+<p>Very professional service. Our enquiries increased significantly.</p>
+<strong>— Amit Sharma, Kolkata</strong>
+</div>
+</div>
+
+<div class="review-box">
+<div class="avatar">RV</div>
+<div>
+<div class="stars">★★★★★</div>
+<p>Clean design and fast delivery. Highly recommended.</p>
+<strong>— Rahul Verma, Delhi</strong>
+</div>
+</div>
+
+</section>
+
+<footer>
+© 2026 Soham Web Solutions. All Rights Reserved.
+</footer>
+
+<script>
+const reveals = document.querySelectorAll(".reveal");
+
+window.addEventListener("scroll", () => {
+reveals.forEach(el => {
+const top = el.getBoundingClientRect().top;
+if(top < window.innerHeight - 100){
+el.classList.add("active");
+}
+});
+});
+</script>
+
+</body>
+</html>
