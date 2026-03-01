@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact - Soham Web Solutions</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+-webkit-tap-highlight-color: transparent;
+}
+
+body{
+background:linear-gradient(180deg,#f5f7ff,#eef1f9);
+color:#111;
+}
+
+/* HEADER */
+header{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:14px 8%;
+background:#fff;
+box-shadow:0 2px 10px rgba(0,0,0,0.05);
+z-index:1000;
+}
+
+.logo{
+font-size:18px;
+font-weight:600;
+color:#2d4bff;
+text-decoration:none;
+}
+
+.menu-btn{
+font-size:22px;
+cursor:pointer;
+}
+
+/* DRAWER */
+.drawer{
+position:fixed;
+top:0;
+right:-260px;
+width:230px;
+height:100vh;
+background:#fff;
+padding:70px 20px;
+display:flex;
+flex-direction:column;
+gap:14px;
+transition:.3s ease;
+box-shadow:-5px 0 20px rgba(0,0,0,0.08);
+z-index:1001;
+}
+
+.drawer a{
+text-decoration:none;
+color:#111;
+border:1px solid #eee;
+padding:10px;
+border-radius:8px;
+text-align:center;
+font-size:14px;
+}
+
+.drawer.active{ right:0; }
+
+.close-btn{
+position:absolute;
+top:15px;
+right:15px;
+cursor:pointer;
+}
+
+.overlay{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.3);
+opacity:0;
+visibility:hidden;
+transition:.3s;
+z-index:1000;
+}
+
+.overlay.active{
+opacity:1;
+visibility:visible;
+}
+
+/* SECTION */
+section{
+padding:120px 8% 60px;
+text-align:center;
+}
+
+section h2{
+margin-bottom:30px;
+font-size:20px;
+}
+
+/* CONTACT GRID */
+.contact-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:20px;
+}
+
+.contact-card{
+background:#fff;
+padding:25px;
+border-radius:20px;
+box-shadow:0 12px 25px rgba(0,0,0,0.06);
+transition:transform .2s ease, box-shadow .2s ease;
+cursor:pointer;
+}
+
+.contact-card:hover{
+transform:translateY(-4px);
+box-shadow:0 16px 30px rgba(0,0,0,0.1);
+}
+
+.contact-card:active{
+transform:scale(0.95);
+}
+
+.contact-card img{
+width:40px;
+margin-bottom:12px;
+}
+
+.contact-card h4{
+font-size:14px;
+margin-bottom:6px;
+color:#2d4bff;
+}
+
+.contact-card p{
+font-size:13px;
+color:#444;
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:25px;
+font-size:12px;
+color:#666;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<a href="index.html" class="logo">Soham Web Solutions</a>
+<div class="menu-btn" onclick="openMenu()">☰</div>
+</header>
+
+<div class="drawer" id="drawer">
+<div class="close-btn" onclick="closeMenu()">✕</div>
+<a href="index.html">Home</a>
+<a href="service.html">Services</a>
+<a href="pricing.html">Pricing</a>
+<a href="review.html">Reviews</a>
+<a href="contact.html">Contact</a>
+</div>
+
+<div class="overlay" id="overlay" onclick="closeMenu()"></div>
+
+<section>
+<h2>Get In Touch</h2>
+
+<div class="contact-grid">
+
+<div class="contact-card">
+<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
+<h4>Phone</h4>
+<p>+91 9083946648</p>
+</div>
+
+<div class="contact-card">
+<img src="https://cdn-icons-png.flaticon.com/512/733/733547.png">
+<h4>WhatsApp</h4>
+<p>+91 9083946648</p>
+</div>
+
+<div class="contact-card">
+<img src="https://cdn-icons-png.flaticon.com/512/732/732200.png">
+<h4>Email</h4>
+<p>sohamwebstudio@gmail.com</p>
+</div>
+
+<div class="contact-card">
+<img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
+<h4>Instagram</h4>
+<p>@sohamwebstudio</p>
+</div>
+
+<div class="contact-card">
+<img src="https://cdn-icons-png.flaticon.com/512/145/145807.png">
+<h4>LinkedIn</h4>
+<p>@sohamwebstudi</p>
+</div>
+
+<div class="contact-card">
+<img src="https://cdn-icons-png.flaticon.com/512/733/733547.png">
+<h4>Facebook</h4>
+<p>@sohamwebstudio</p>
+</div>
+
+</div>
+
+</section>
+
+<footer>
+Made by Soham ★
+</footer>
+
+<script>
+function openMenu(){
+document.getElementById("drawer").classList.add("active");
+document.getElementById("overlay").classList.add("active");
+}
+function closeMenu(){
+document.getElementById("drawer").classList.remove("active");
+document.getElementById("overlay").classList.remove("active");
+}
+</script>
+
+</body>
+</html>
