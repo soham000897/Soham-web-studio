@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Client Reviews - Soham Web Solutions</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 *{
@@ -16,73 +16,88 @@ font-family:'Poppins',sans-serif;
 -webkit-tap-highlight-color: transparent;
 }
 
-html{ scroll-behavior:smooth; }
-
 body{
 background:linear-gradient(180deg,#f5f7ff,#eef1f9);
 color:#111;
 overflow-x:hidden;
 }
 
-/* HEADER */
+/* HEADER SAME */
 header{
 position:fixed;
 top:0;
 width:100%;
+background:#fff;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:14px 8%;
-background:#fff;
-box-shadow:0 2px 10px rgba(0,0,0,0.05);
+padding:18px 8%;
+box-shadow:0 4px 12px rgba(0,0,0,0.05);
 z-index:1000;
 }
 
 .logo{
-font-size:18px;
-font-weight:600;
-color:#2d4bff;
+font-weight:800;
+font-size:19px;
+color:#1a2cff;
 text-decoration:none;
+}
+
+.top-nav{
+display:flex;
+gap:25px;
+}
+
+.top-nav a{
+text-decoration:none;
+color:#333;
+font-weight:500;
+}
+
+.top-nav a.active{
+color:#1a2cff;
+font-weight:700;
 }
 
 .menu-btn{
-font-size:22px;
+display:none;
+font-size:24px;
 cursor:pointer;
 }
 
-/* DRAWER */
+/* Drawer */
 .drawer{
 position:fixed;
 top:0;
-right:-260px;
-width:230px;
+right:-100%;
+width:100%;
 height:100vh;
-background:#fff;
-padding:70px 20px;
+background:rgba(255,255,255,0.75);
+backdrop-filter:blur(18px);
 display:flex;
 flex-direction:column;
-gap:14px;
-transition:.3s ease;
-box-shadow:-5px 0 20px rgba(0,0,0,0.08);
+padding:120px 30px;
+gap:20px;
+transition:.4s;
 z-index:1001;
-}
-
-.drawer a{
-text-decoration:none;
-color:#111;
-border:1px solid #eee;
-padding:10px;
-border-radius:8px;
-text-align:center;
-font-size:14px;
 }
 
 .drawer.active{ right:0; }
 
+.drawer a{
+text-decoration:none;
+background:#fff;
+padding:20px;
+border-radius:20px;
+font-weight:600;
+text-align:center;
+}
+
 .close-btn{
 position:absolute;
-top:15px;
-right:15px;
+top:35px;
+right:30px;
+font-size:26px;
 cursor:pointer;
 }
 
@@ -92,7 +107,7 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.3);
+background:rgba(0,0,0,0.35);
 opacity:0;
 visibility:hidden;
 transition:.3s;
@@ -106,7 +121,7 @@ visibility:visible;
 
 /* SECTION */
 section{
-padding:120px 8% 40px;
+padding:150px 8% 60px;
 opacity:0;
 transform:translateY(30px);
 transition:.6s ease;
@@ -118,11 +133,11 @@ transform:translateY(0);
 }
 
 section h2{
-font-size:18px;
-margin-bottom:20px;
+font-size:20px;
+margin-bottom:25px;
 }
 
-/* AUTO SCROLL */
+/* SCROLL */
 .scroll-container{
 overflow:hidden;
 }
@@ -130,40 +145,36 @@ overflow:hidden;
 .scroll-track{
 display:flex;
 gap:18px;
-animation:scrollLeft 14s linear infinite;
+animation:scrollLeft 15s linear infinite;
 }
 
 .scroll-container:hover .scroll-track{
 animation-play-state:paused;
 }
 
-/* CARD */
 .review-card{
 min-width:260px;
 background:#fff;
 padding:20px;
 border-radius:22px;
 box-shadow:0 12px 25px rgba(0,0,0,0.06);
-transition:transform .18s ease, box-shadow .18s ease;
-cursor:pointer;
+transition:.2s;
 }
 
-.review-card:active{
-transform:scale(0.94);
-box-shadow:0 16px 35px rgba(0,0,0,0.15);
+.review-card:hover{
+transform:translateY(-4px);
+box-shadow:0 18px 35px rgba(0,0,0,0.12);
 }
 
 .stars{
 color:#ffb400;
-font-size:14px;
 margin-bottom:8px;
 }
 
 .review-text{
 font-size:13px;
-color:#444;
 margin-bottom:8px;
-line-height:1.4;
+color:#444;
 }
 
 .client{
@@ -183,6 +194,11 @@ padding:25px;
 font-size:12px;
 color:#666;
 }
+
+@media(max-width:768px){
+.top-nav{display:none;}
+.menu-btn{display:block;}
+}
 </style>
 </head>
 
@@ -190,6 +206,15 @@ color:#666;
 
 <header>
 <a href="index.html" class="logo">Soham Web Solutions</a>
+
+<nav class="top-nav">
+<a href="index.html">Home</a>
+<a href="service.html">Services</a>
+<a href="pricing.html">Pricing</a>
+<a href="review.html" class="active">Reviews</a>
+<a href="contact.html">Contact</a>
+</nav>
+
 <div class="menu-btn" onclick="openMenu()">☰</div>
 </header>
 
@@ -199,111 +224,94 @@ color:#666;
 <a href="service.html">Services</a>
 <a href="pricing.html">Pricing</a>
 <a href="review.html">Reviews</a>
+<a href="contact.html">Contact</a>
 </div>
 
 <div class="overlay" id="overlay" onclick="closeMenu()"></div>
 
-<!-- 1️⃣ BUSINESS -->
+<!-- BUSINESS -->
 <section>
-<h2>Business Clients</h2>
+<h2>Business Reviews</h2>
 <div class="scroll-container">
 <div class="scroll-track">
-
 <div class="review-card">
 <div class="stars">★★★★★</div>
 <div class="review-text">Professional website delivered on time.</div>
 <div class="client">— Amit Sharma</div>
 </div>
-
 <div class="review-card">
 <div class="stars">★★★★★</div>
 <div class="review-text">Great communication and smooth process.</div>
 <div class="client">— Rahul Verma</div>
 </div>
-
 <div class="review-card">
 <div class="stars">★★★★☆</div>
 <div class="review-text">Clean UI and SEO optimized work.</div>
 <div class="client">— Manish Patel</div>
 </div>
-
-<!-- duplicate -->
 <div class="review-card">
 <div class="stars">★★★★★</div>
 <div class="review-text">Professional website delivered on time.</div>
 <div class="client">— Amit Sharma</div>
 </div>
-
 </div>
 </div>
 </section>
 
-<!-- 2️⃣ STARTUP -->
+<!-- STARTER -->
 <section>
-<h2>Startup Projects</h2>
+<h2>Starter Reviews</h2>
 <div class="scroll-container">
 <div class="scroll-track">
-
 <div class="review-card">
 <div class="stars">★★★★★</div>
-<div class="review-text">Helped launch our startup website quickly.</div>
+<div class="review-text">Affordable and quick delivery.</div>
 <div class="client">— Priya Singh</div>
 </div>
-
-<div class="review-card">
-<div class="stars">★★★★★</div>
-<div class="review-text">Modern design and fast performance.</div>
-<div class="client">— Sneha Roy</div>
-</div>
-
-<div class="review-card">
-<div class="stars">★★★★★</div>
-<div class="review-text">Affordable and high quality service.</div>
-<div class="client">— Arjun Das</div>
-</div>
-
-<!-- duplicate -->
-<div class="review-card">
-<div class="stars">★★★★★</div>
-<div class="review-text">Helped launch our startup website quickly.</div>
-<div class="client">— Priya Singh</div>
-</div>
-
-</div>
-</div>
-</section>
-
-<!-- 3️⃣ PERSONAL -->
-<section>
-<h2>Personal Projects</h2>
-<div class="scroll-container">
-<div class="scroll-track">
-
-<div class="review-card">
-<div class="stars">★★★★★</div>
-<div class="review-text">Portfolio site looks amazing.</div>
-<div class="client">— Rohan Gupta</div>
-</div>
-
 <div class="review-card">
 <div class="stars">★★★★☆</div>
-<div class="review-text">Smooth and responsive design.</div>
+<div class="review-text">Perfect for small business website.</div>
+<div class="client">— Rohit Das</div>
+</div>
+<div class="review-card">
+<div class="stars">★★★★★</div>
+<div class="review-text">Responsive design and smooth UI.</div>
 <div class="client">— Neha Kapoor</div>
 </div>
-
 <div class="review-card">
 <div class="stars">★★★★★</div>
-<div class="review-text">Exceeded expectations completely.</div>
-<div class="client">— Vikram Roy</div>
+<div class="review-text">Affordable and quick delivery.</div>
+<div class="client">— Priya Singh</div>
 </div>
+</div>
+</div>
+</section>
 
-<!-- duplicate -->
+<!-- PREMIUM -->
+<section>
+<h2>Premium Reviews</h2>
+<div class="scroll-container">
+<div class="scroll-track">
 <div class="review-card">
 <div class="stars">★★★★★</div>
-<div class="review-text">Portfolio site looks amazing.</div>
-<div class="client">— Rohan Gupta</div>
+<div class="review-text">AI integration works flawlessly.</div>
+<div class="client">— Arjun Roy</div>
 </div>
-
+<div class="review-card">
+<div class="stars">★★★★★</div>
+<div class="review-text">Premium feel and fast performance.</div>
+<div class="client">— Vikram Mehta</div>
+</div>
+<div class="review-card">
+<div class="stars">★★★★★</div>
+<div class="review-text">Best quality work and full support.</div>
+<div class="client">— Karan Singh</div>
+</div>
+<div class="review-card">
+<div class="stars">★★★★★</div>
+<div class="review-text">AI integration works flawlessly.</div>
+<div class="client">— Arjun Roy</div>
+</div>
 </div>
 </div>
 </section>
@@ -322,20 +330,16 @@ document.getElementById("drawer").classList.remove("active");
 document.getElementById("overlay").classList.remove("active");
 }
 
-/* Scroll reveal */
-const sections = document.querySelectorAll("section");
-
+const sections=document.querySelectorAll("section");
 function reveal(){
 sections.forEach(sec=>{
-const top = sec.getBoundingClientRect().top;
-if(top < window.innerHeight - 100){
+if(sec.getBoundingClientRect().top < window.innerHeight-80){
 sec.classList.add("show");
 }
 });
 }
-
-window.addEventListener("load", reveal);
-window.addEventListener("scroll", reveal);
+window.addEventListener("load",reveal);
+window.addEventListener("scroll",reveal);
 </script>
 
 </body>
